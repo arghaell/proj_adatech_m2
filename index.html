@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projeto Contato - AdaTech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="my-4 text-center">
+            <h1>Cadastro de Contatos</h1>
+        </div>
+
+        <div class="pb-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-backdrop="static"
+                data-bs-target="#contact">
+                <i class="bi bi-plus"></i> Novo Contato
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-backdrop="static"
+                data-bs-target="#find-contact">
+                <i class="bi bi-search"></i> Pesquisar
+            </button>
+        </div>
+
+        <!-- MODAL DE CADASTRO E EDIÇÃO DE REGISTRO -->
+        <div class="modal fade" id="contact" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form id="form" action="" method="post" autocomplete="off">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                Novo Contato
+                            </h1>
+                            <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col col-5">
+                                    <label for="">Nome</label>
+                                    <input type="text" id="name" name="username" class="form-control" autofocus />
+                                </div>
+                                <div class="col col-3">
+                                    <label for="">Telefone</label>
+                                    <input type="text" id="phone" name="phone" class="form-control phone-mask" />
+                                </div>
+                                <div class="col col-4">
+                                    <label for="">E-mail</label>
+                                    <input type="text" id="email" name="email" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-6">
+                                    <label for="street">Rua</label>
+                                    <input type="text" id="street" name="street" class="form-control" />
+                                </div>
+                                <div class="col col-2">
+                                    <label for="street">Número</label>
+                                    <input type="text" id="number" name="number" class="form-control" />
+                                </div>
+                                <div class="col col-4">
+                                    <label for="street">Bairro</label>
+                                    <input type="text" id="district" name="district" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-6">
+                                    <label for="">Cidade</label>
+                                    <input type="text" id="city" name="city" class="form-control" />
+                                </div>
+                                <div class="col col-6">
+                                    <label for="">Estado</label>
+                                    <input type="text" id="state" name="state" class="form-control" maxlength="2" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Fechar
+                            </button>
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL CADASTRO E ATUALIZAÇÃO DE REGISTRO -->
+
+        <!-- MODAL PESQUISAR CADASTRO POR ID -->
+        <div class="modal fade" id="find-contact" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Pesquisar contato por ID</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <label for="">Id do Contato</label>
+                            <input type="number" min="1" class="form-control form-lg" placeholder="Informe o ID do Contato">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Fechar
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL PESQUISAR CADASTRO POR ID -->
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Endereço</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Maria</td>
+                        <td>(88) 9 8888-4444</td>
+                        <td>maria@gmail.com</td>
+                        <td>Rua 01, 40, bairro Teste, Cidade A - UF</td>
+                        <td>
+                            <button class="btn btn-primary btn-options" id-contact="1" action="edit"><i class="bi bi-pencil"></i></button>
+                            <button class="btn btn-danger btn-options" id-contact="1" action="delete"><i class="bi bi-trash3"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="assets/js/mask.js"></script>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>
