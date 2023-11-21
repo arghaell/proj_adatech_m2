@@ -15,11 +15,22 @@
 let contacts = []; //guarda a lista de contatos
 let nextContactId = 1; //controla o ID do proximo contato a ser inserido
 
+
+/**
+ * Função para inserir um contato na lista de contatos
+ * @param {*} contact 
+ */
+export function insert(contact){
+    let nexContact = {id:nextContactId, ...contact};
+    contacts.push(nexContact);
+    nextContactId++;
+}
+
 /**
  * Função para retornar todos os contatos cadastrados
  */
 export function findAll(){
-    console.log('testando buscar todos')
+    return contacts;
 }
 
 
@@ -29,14 +40,6 @@ export function findAll(){
  */
 export function findById(id){
     console.log('testando buscar por id')
-}
-
-/**
- * Função para inserir um contato na lista de contatos
- * @param {*} contact 
- */
-export function insert(contact){
-    console.log('testando insert')
 }
 
 /**
