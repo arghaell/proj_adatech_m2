@@ -21,7 +21,7 @@ let nextContactId = 1; //controla o ID do proximo contato a ser inserido
  * @param {*} contact 
  */
 export function insert(contact){
-    let nexContact = {id:nextContactId, ...contact};
+    let nexContact = {id: nextContactId, ...contact};
     contacts.push(nexContact);
     nextContactId++;
 }
